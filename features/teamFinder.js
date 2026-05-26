@@ -26,7 +26,10 @@ function createGameDropdown() {
                 { label: 'MLBB', value: 'tf_mlbb', emoji: { id: '1507428533679689788' } },
                 { label: 'Roblox', value: 'tf_roblox', emoji: { id: '1507428533679689788' } },
                 { label: 'League of Legends', value: 'tf_lol', emoji: { id: '1507428533679689788' } },
-                { label: 'Among Us', value: 'tf_amongus', emoji: { id: '1507428533679689788' } }
+                { label: 'Among Us', value: 'tf_amongus', emoji: { id: '1507428533679689788' } },
+                { label: 'CODM', value: 'tf_codm', emoji: { id: '1507428533679689788' } },
+                { label: 'Minecraft', value: 'tf_minecraft', emoji: { id: '1507428533679689788' } },
+                { label: 'Bloodstrike', value: 'tf_bloodstrike', emoji: { id: '1507428533679689788' } }
             ])
     );
 }
