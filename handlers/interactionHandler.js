@@ -9,6 +9,7 @@ module.exports = (client) => {
     const teamFinder = require('../features/teamFinder');
     const suggestionSystem = require('../features/suggestionSystem');
     const instagram = require('../features/instagram');
+    const selfRole = require('../features/selfRole');
     const voiceJoin = require('../features/voiceJoin');
 
     // Initialize command access
@@ -20,6 +21,7 @@ module.exports = (client) => {
     teamFinder(client);
     suggestionSystem(client);
     instagram(client);
+    selfRole(client);
     voiceJoin(client);
 
     client.on('interactionCreate', async (interaction) => {
@@ -39,6 +41,9 @@ module.exports = (client) => {
                 // Route to handlers
                 if (commandName === 'teamfinderpanel') {
                     await teamFinder.handleTeamFinderPanel(interaction);
+                } else if (commandName === 'selfrolepanel') {
+                    const category = interaction.options?.getString('category') || 'games';
+                    await selfRole.handleSelfRolePanel(interaction, category);
                 } else if (commandName === 'donatorsetup') {
                     await donatorSystem.handleDonatorSetup(interaction);
                 } else if (commandName === 'suggestpanel') {
@@ -86,6 +91,11 @@ module.exports = (client) => {
 
                 if (customId === 'tf_game_select') {
                     await teamFinder.handleGameSelect(interaction);
+                }
+                if (customId.startsWith('sr_select:')) {
+                    const parts = customId.split(':');
+                    const category = parts[1];
+                    await selfRole.handleSelect(interaction, category);
                 }
             }
 
