@@ -73,6 +73,16 @@ const commands = [
                 .setDescription('Instagram username (without @)')
                 .setRequired(true)
         )
+    ,new SlashCommandBuilder()
+        .setName('selfrolepanel')
+        .setDescription('Setup self-role panel for games')
+        .addStringOption(option =>
+            option.setName('category')
+                .setDescription('Which self-role category to post')
+                .setRequired(false)
+                .addChoices({ name: 'Games', value: 'games' })
+        )
+    
 ].map(cmd => cmd.toJSON());
 
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
